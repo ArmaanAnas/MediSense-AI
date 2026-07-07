@@ -1,5 +1,32 @@
+# Virtual Environment
 venv/
+.venv/
+
+# Python Cache
 __pycache__/
 *.pyc
+
+# Environment Variables
 .env
+
+# ML Models
 trained_models/
+
+# VS Code
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build Files
+build/
+dist/
+*.egg-info/
+
+# Test Coverage
+.coverage
+.pytest_cache/
+
+# OS Files
+.DS_Store
+Thumbs.db
