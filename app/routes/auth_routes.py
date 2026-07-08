@@ -98,7 +98,7 @@ def login():
     return render_template(
         "auth/login.html"
     )
-    
+
 @auth.route("/dashboard")
 @login_required
 def dashboard():
@@ -131,13 +131,42 @@ def dashboard():
         else:
             health_status = "Obese"
 
+    risk_score = 0
+
+    if bmi and bmi > 25:
+        risk_score += 2
+
+    if profile.blood_sugar > 140:
+        risk_score += 3
+
+    if profile.cholesterol > 200:
+        risk_score += 2
+
+    if profile.smoking_status.lower() == "yes":
+        risk_score += 2
+
+    if profile.family_history.lower() != "none":
+        risk_score += 1
+
+    if risk_score <= 2:
+        risk_level = "Low Risk"
+
+    elif risk_score <= 5:
+        risk_level = "Medium Risk"
+
+    else:
+        risk_level = "High Risk"
+
     return render_template(
         "dashboard/dashboard.html",
         profile=profile,
         bmi=bmi,
         health_status=health_status,
+        risk_score=risk_score,
+        risk_level=risk_level,
         user=current_user
     )
+
 @auth.route("/logout")
 @login_required
 def logout():
@@ -150,6 +179,7 @@ def logout():
     return redirect(
     url_for("main.home")
 )
+
 @auth.route("/health-profile", methods=["GET", "POST"])
 @login_required
 def health_profile():

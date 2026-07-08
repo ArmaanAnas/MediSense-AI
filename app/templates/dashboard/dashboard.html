@@ -48,6 +48,16 @@
                 <p>{{ profile.blood_sugar }}</p>
             </div>
 
+            <div class="card">
+                <h3>Risk Score</h3>
+                <p>{{ risk_score }}/10</p>
+            </div>
+
+            <div class="card">
+                <h3>Risk Level</h3>
+                <p>{{ risk_level }}</p>
+            </div>
+
         </div>
 
         <div class="health-summary">
@@ -71,6 +81,10 @@
             <p><b>Exercise:</b> {{ profile.exercise_frequency }}</p>
 
             <p><b>Family History:</b> {{ profile.family_history }}</p>
+
+            <p><b>Risk Score:</b> {{ risk_score }}</p>
+
+            <p><b>Risk Level:</b> {{ risk_level }}</p>
 
         </div>
 
