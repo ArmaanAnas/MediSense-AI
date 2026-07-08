@@ -25,11 +25,12 @@
         </div>
 
         <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Features</a>
-            <a href="#">About</a>
-            <a href="#">Login</a>
-        </div>
+    <a href="#">Home</a>
+    <a href="#">Features</a>
+    <a href="#">About</a>
+    <a href="{{ url_for('auth.login') }}">Login</a>
+    <a href="{{ url_for('auth.register') }}">Register</a>
+</div>
 
     </nav>
 
@@ -53,11 +54,11 @@
 
         <div class="hero-buttons">
 
-            <a href="#" class="btn primary">
+            <a href="{{ url_for('auth.register') }}" class="btn primary">
                 Get Started
             </a>
 
-            <a href="#" class="btn secondary">
+            <a href="#features" class="btn secondary">
                 Learn More
             </a>
 
@@ -101,7 +102,7 @@
 
     <!-- Features -->
 
-    <section class="features">
+    <section class="features" id="features">
 
         <h2>Core Features</h2>
 
