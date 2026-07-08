@@ -5,15 +5,45 @@
 </head>
 <body>
 
-    <h1>Welcome to MediSense AI Dashboard</h1>
+    <h1>
+        Welcome {{ user.name }}
+    </h1>
 
-    <p>
-        Authentication system is working successfully.
-    </p>
+    {% if profile %}
 
-    <a href="{{ url_for('auth.health_profile') }}">
-        Create Health Profile
-    </a>
+        <h2>Health Summary</h2>
+
+        <p><b>Age:</b> {{ profile.age }}</p>
+
+        <p><b>Gender:</b> {{ profile.gender }}</p>
+
+        <p><b>Height:</b> {{ profile.height }} cm</p>
+
+        <p><b>Weight:</b> {{ profile.weight }} kg</p>
+
+        <p><b>BMI:</b> {{ bmi }}</p>
+
+        <p><b>Blood Pressure:</b> {{ profile.blood_pressure }}</p>
+
+        <p><b>Blood Sugar:</b> {{ profile.blood_sugar }}</p>
+
+        <p><b>Cholesterol:</b> {{ profile.cholesterol }}</p>
+
+        <p><b>Smoking:</b> {{ profile.smoking_status }}</p>
+
+        <p><b>Exercise:</b> {{ profile.exercise_frequency }}</p>
+
+        <p><b>Family History:</b> {{ profile.family_history }}</p>
+
+    {% else %}
+
+        <h3>No Health Profile Found</h3>
+
+        <a href="{{ url_for('auth.health_profile') }}">
+            Create Health Profile
+        </a>
+
+    {% endif %}
 
     <br><br>
 

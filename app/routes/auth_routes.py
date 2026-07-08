@@ -102,8 +102,24 @@ def login():
 @login_required
 def dashboard():
 
+    profile = HealthProfile.query.filter_by(
+        user_id=current_user.id
+    ).first()
+
+    bmi = None
+
+    if profile:
+        bmi = round(
+            profile.weight /
+            ((profile.height / 100) ** 2),
+            2
+        )
+
     return render_template(
-        "dashboard/dashboard.html"
+        "dashboard/dashboard.html",
+        profile=profile,
+        bmi=bmi,
+        user=current_user
     )
 @auth.route("/logout")
 @login_required
