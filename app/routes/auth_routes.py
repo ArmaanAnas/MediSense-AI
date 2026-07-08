@@ -8,6 +8,7 @@ from flask import (
 )
 
 from app.extensions import db, bcrypt
+from flask_login import login_user, logout_user, login_required
 from app.models import User
 
 auth = Blueprint(
@@ -57,6 +58,55 @@ def register():
     return render_template("auth/register.html")
 
 
-@auth.route("/login")
+@auth.route("/login", methods=["GET", "POST"])
 def login():
-    return "Login Page"
+
+    if request.method == "POST":
+
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        user = User.query.filter_by(
+            email=email
+        ).first()
+
+        if user and bcrypt.check_password_hash(
+            user.password_hash,
+            password
+        ):
+
+            login_user(user)
+
+            return redirect(
+                url_for("auth.dashboard")
+            )
+
+        flash("Invalid email or password")
+
+        return redirect(
+            url_for("auth.login")
+        )
+
+    return render_template(
+        "auth/login.html"
+    )
+@auth.route("/dashboard")
+@login_required
+def dashboard():
+
+    return """
+    <h1>Welcome to MediSense AI Dashboard</h1>
+    <a href='/logout'>Logout</a>
+    """
+@auth.route("/logout")
+@login_required
+def logout():
+
+    logout_user()
+
+    return redirect(
+        url_for("main.home")
+    )
+    return redirect(
+    url_for("main.home")
+)
