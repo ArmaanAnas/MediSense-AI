@@ -1,3 +1,11 @@
+from flask_login import (
+    login_user,
+    logout_user,
+    login_required,
+    current_user
+)
+
+from app.models.health_profile import HealthProfile
 from flask import (
     Blueprint,
     render_template,
@@ -94,10 +102,9 @@ def login():
 @login_required
 def dashboard():
 
-    return """
-    <h1>Welcome to MediSense AI Dashboard</h1>
-    <a href='/logout'>Logout</a>
-    """
+    return render_template(
+        "dashboard/dashboard.html"
+    )
 @auth.route("/logout")
 @login_required
 def logout():
@@ -110,3 +117,35 @@ def logout():
     return redirect(
     url_for("main.home")
 )
+@auth.route("/health-profile", methods=["GET", "POST"])
+@login_required
+def health_profile():
+
+    if request.method == "POST":
+
+        profile = HealthProfile(
+            user_id=current_user.id,
+            age=request.form.get("age"),
+            gender=request.form.get("gender"),
+            height=request.form.get("height"),
+            weight=request.form.get("weight"),
+            blood_pressure=request.form.get("blood_pressure"),
+            blood_sugar=request.form.get("blood_sugar"),
+            cholesterol=request.form.get("cholesterol"),
+            smoking_status=request.form.get("smoking_status"),
+            exercise_frequency=request.form.get("exercise_frequency"),
+            family_history=request.form.get("family_history")
+        )
+
+        db.session.add(profile)
+        db.session.commit()
+
+        flash("Health Profile Saved Successfully")
+
+        return redirect(
+            url_for("auth.dashboard")
+        )
+
+    return render_template(
+        "health/health_profile.html"
+    )

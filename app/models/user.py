@@ -27,3 +27,8 @@ class User(UserMixin, db.Model):
         db.DateTime,
         default=datetime.utcnow
     )
+    health_profiles = db.relationship(
+    "HealthProfile",
+    backref="user",
+    lazy=True
+)
