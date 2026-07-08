@@ -98,6 +98,7 @@ def login():
     return render_template(
         "auth/login.html"
     )
+    
 @auth.route("/dashboard")
 @login_required
 def dashboard():
@@ -115,10 +116,26 @@ def dashboard():
             2
         )
 
+    health_status = "Healthy"
+
+    if bmi:
+        if bmi < 18.5:
+            health_status = "Underweight"
+
+        elif bmi < 25:
+            health_status = "Healthy"
+
+        elif bmi < 30:
+            health_status = "Overweight"
+
+        else:
+            health_status = "Obese"
+
     return render_template(
         "dashboard/dashboard.html",
         profile=profile,
         bmi=bmi,
+        health_status=health_status,
         user=current_user
     )
 @auth.route("/logout")

@@ -1,0 +1,75 @@
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#0f172a;
+    color:white;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+    background:#111827;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#06b6d4;
+}
+
+.logout-btn{
+    text-decoration:none;
+    color:white;
+    background:#dc2626;
+    padding:10px 18px;
+    border-radius:8px;
+}
+
+.dashboard{
+    max-width:1200px;
+    margin:auto;
+    padding:40px;
+}
+
+.welcome{
+    margin-bottom:30px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:#1e293b;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+}
+
+.card h3{
+    color:#06b6d4;
+}
+
+.card p{
+    font-size:24px;
+    font-weight:bold;
+}
+
+.health-summary{
+    margin-top:40px;
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+}
+
+.health-summary h2{
+    color:#06b6d4;
+}
+
+.health-summary p{
+    line-height:1.8;
+}
