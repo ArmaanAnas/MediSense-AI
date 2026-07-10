@@ -1,6 +1,7 @@
 from flask import Flask
 from config import Config
 from app.routes.auth_routes import auth
+from app.routes.prediction_routes import prediction
 
 from app.extensions import (
     db,
@@ -27,6 +28,7 @@ def create_app():
 
     app.register_blueprint(main)
     app.register_blueprint(auth)
+    app.register_blueprint(prediction)
     with app.app_context():
         db.create_all()
 
