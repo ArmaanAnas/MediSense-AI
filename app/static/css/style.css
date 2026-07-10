@@ -16,7 +16,7 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 80px;
+    padding:25px 80px;
 }
 
 .logo{
@@ -36,24 +36,29 @@ body{
     color:#06b6d4;
 }
 
-/* Hero */
+/* Hero Section */
 
 .hero{
-    min-height:80vh;
+    min-height:85vh;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     text-align:center;
+
     padding:40px;
 }
 
 .hero-content{
-    max-width:900px;
+    max-width:850px;
 }
 
 .hero h1{
-    font-size:4rem;
-    margin-bottom:20px;
+    font-size:5rem;
+    font-weight:800;
+    margin-bottom:25px;
+    line-height:1.2;
 }
 
 .hero h1 span{
@@ -61,27 +66,32 @@ body{
 }
 
 .hero p{
+    font-size:1.3rem;
     color:#94a3b8;
-    font-size:1.2rem;
     line-height:1.8;
 }
 
 .hero-buttons{
-    margin-top:35px;
+    margin-top:40px;
 }
 
 .btn{
     text-decoration:none;
-    padding:14px 28px;
+    padding:15px 32px;
     border-radius:12px;
     margin:10px;
     display:inline-block;
     font-weight:600;
+    transition:0.3s;
 }
 
 .primary{
     background:#06b6d4;
     color:white;
+}
+
+.primary:hover{
+    transform:translateY(-3px);
 }
 
 .secondary{
@@ -90,16 +100,20 @@ body{
     border:1px solid #334155;
 }
 
+.secondary:hover{
+    transform:translateY(-3px);
+}
+
 /* Features */
 
 .features{
-    padding:80px 10%;
+    padding:100px 10%;
 }
 
 .features h2{
     text-align:center;
-    margin-bottom:50px;
-    font-size:2.5rem;
+    margin-bottom:60px;
+    font-size:2.7rem;
 }
 
 .feature-grid{
@@ -129,55 +143,10 @@ body{
 }
 
 .feature-card h3{
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 
 .feature-card p{
     color:#94a3b8;
-}
-.hero{
-    min-height:85vh;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:60px 10%;
-    gap:60px;
-}
-
-.hero-left{
-    flex:1;
-}
-
-.hero-right{
-    flex:1;
-    display:flex;
-    justify-content:center;
-}
-
-.dashboard-card{
-    width:350px;
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,0.1);
-    border-radius:25px;
-    padding:30px;
-    box-shadow:0 0 40px rgba(6,182,212,0.15);
-}
-
-.dashboard-card h3{
-    margin-bottom:25px;
-    color:#06b6d4;
-}
-
-.metric{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:18px;
-    padding-bottom:12px;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-}
-
-.low-risk{
-    color:#22c55e;
-    font-weight:bold;
+    line-height:1.6;
 }

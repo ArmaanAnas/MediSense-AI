@@ -62,31 +62,80 @@
 
         <div class="health-summary">
 
-            <h2>Health Details</h2>
+    <h2>Health Details</h2>
 
-            <p><b>Age:</b> {{ profile.age }}</p>
+    <div class="detail-grid">
 
-            <p><b>Gender:</b> {{ profile.gender }}</p>
-
-            <p><b>Height:</b> {{ profile.height }} cm</p>
-
-            <p><b>Weight:</b> {{ profile.weight }} kg</p>
-
-            <p><b>Blood Pressure:</b> {{ profile.blood_pressure }}</p>
-
-            <p><b>Cholesterol:</b> {{ profile.cholesterol }}</p>
-
-            <p><b>Smoking:</b> {{ profile.smoking_status }}</p>
-
-            <p><b>Exercise:</b> {{ profile.exercise_frequency }}</p>
-
-            <p><b>Family History:</b> {{ profile.family_history }}</p>
-
-            <p><b>Risk Score:</b> {{ risk_score }}</p>
-
-            <p><b>Risk Level:</b> {{ risk_level }}</p>
-
+        <div class="detail-item">
+            <span>Age</span>
+            <strong>{{ profile.age }}</strong>
         </div>
+
+        <div class="detail-item">
+            <span>Gender</span>
+            <strong>{{ profile.gender }}</strong>
+        </div>
+
+        <div class="detail-item">
+            <span>Height</span>
+            <strong>{{ profile.height }} cm</strong>
+        </div>
+
+        <div class="detail-item">
+            <span>Weight</span>
+            <strong>{{ profile.weight }} kg</strong>
+        </div>
+
+        <div class="detail-item">
+            <span>Blood Pressure</span>
+            <strong>{{ profile.blood_pressure }}</strong>
+        </div>
+
+        <div class="detail-item">
+            <span>Blood Sugar</span>
+            <strong>{{ profile.blood_sugar }}</strong>
+        </div>
+
+        <div class="detail-item">
+            <span>Cholesterol</span>
+            <strong>{{ profile.cholesterol }}</strong>
+        </div>
+
+        <div class="detail-item">
+            <span>Smoking</span>
+            <strong>{{ profile.smoking_status }}</strong>
+        </div>
+
+        <div class="detail-item">
+            <span>Exercise</span>
+            <strong>{{ profile.exercise_frequency }}</strong>
+        </div>
+
+        <div class="detail-item">
+            <span>Family History</span>
+            <strong>{{ profile.family_history }}</strong>
+        </div>
+
+    </div>
+
+</div>
+<div class="quick-actions">
+
+    <h2>AI Tools</h2>
+
+    <div class="action-buttons">
+
+        <a href="/diabetes-prediction">
+            Diabetes Prediction
+        </a>
+
+        <a href="/prediction-history">
+            Prediction History
+        </a>
+
+    </div>
+
+</div>
 
         {% endif %}
 

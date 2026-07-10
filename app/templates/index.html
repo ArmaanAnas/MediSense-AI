@@ -25,12 +25,12 @@
         </div>
 
         <div class="nav-links">
-    <a href="#">Home</a>
-    <a href="#">Features</a>
-    <a href="#">About</a>
-    <a href="{{ url_for('auth.login') }}">Login</a>
-    <a href="{{ url_for('auth.register') }}">Register</a>
-</div>
+            <a href="#">Home</a>
+            <a href="#features">Features</a>
+            <a href="#">About</a>
+            <a href="{{ url_for('auth.login') }}">Login</a>
+            <a href="{{ url_for('auth.register') }}">Register</a>
+        </div>
 
     </nav>
 
@@ -38,67 +38,41 @@
 
     <section class="hero">
 
-    <div class="hero-left">
+        <div class="hero-content">
 
-        <h1>
-            Predict Health Risks
-            <span>Using AI</span>
-        </h1>
+            <h1>
+                Predict Health Risks
+                <span>Using AI</span>
+            </h1>
 
-        <p>
-            MediSense AI helps users analyze health parameters,
-            predict disease risks, generate personalized
-            recommendations and monitor wellness using Artificial
-            Intelligence.
-        </p>
+            <p>
+                MediSense AI helps users analyze health parameters,
+                predict disease risks, generate personalized
+                recommendations and monitor wellness using
+                Artificial Intelligence.
+            </p>
 
-        <div class="hero-buttons">
+            <div class="hero-buttons">
 
-            <a href="{{ url_for('auth.register') }}" class="btn primary">
-                Get Started
-            </a>
+                <a href="{{ url_for('auth.register') }}"
+                   class="btn primary">
 
-            <a href="#features" class="btn secondary">
-                Learn More
-            </a>
+                    Get Started
 
-        </div>
+                </a>
 
-    </div>
+                <a href="#features"
+                   class="btn secondary">
 
-    <div class="hero-right">
+                    Learn More
 
-        <div class="dashboard-card">
+                </a>
 
-            <h3>Health Overview</h3>
-
-            <div class="metric">
-                ❤️ Heart Rate
-                <span>78 BPM</span>
-            </div>
-
-            <div class="metric">
-                🩸 Blood Sugar
-                <span>95 mg/dL</span>
-            </div>
-
-            <div class="metric">
-                ⚖️ BMI
-                <span>22.8</span>
-            </div>
-
-            <div class="metric">
-                🧠 Risk Score
-                <span class="low-risk">
-                    Low Risk
-                </span>
             </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
     <!-- Features -->
 
@@ -109,35 +83,55 @@
         <div class="feature-grid">
 
             <div class="feature-card">
+
                 <i class="fa-solid fa-stethoscope"></i>
+
                 <h3>Disease Prediction</h3>
+
                 <p>
-                    Predict diabetes, heart disease and hypertension risk.
+                    Predict diabetes, heart disease and
+                    hypertension risk.
                 </p>
+
             </div>
 
             <div class="feature-card">
+
                 <i class="fa-solid fa-chart-line"></i>
+
                 <h3>Health Analytics</h3>
+
                 <p>
-                    Visualize health trends and monitor progress.
+                    Visualize health trends and monitor
+                    progress.
                 </p>
+
             </div>
 
             <div class="feature-card">
+
                 <i class="fa-solid fa-robot"></i>
+
                 <h3>AI Assistant</h3>
+
                 <p>
-                    Ask health-related questions with AI support.
+                    Ask health-related questions with
+                    AI support.
                 </p>
+
             </div>
 
             <div class="feature-card">
+
                 <i class="fa-solid fa-file-medical"></i>
+
                 <h3>Smart Reports</h3>
+
                 <p>
-                    Generate downloadable health reports instantly.
+                    Generate downloadable health reports
+                    instantly.
                 </p>
+
             </div>
 
         </div>

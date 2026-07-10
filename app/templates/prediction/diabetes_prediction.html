@@ -1,89 +1,141 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <title>Diabetes Prediction</title>
+
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/diabetes.css') }}">
+
 </head>
 <body>
 
-<h1>Diabetes Prediction</h1>
+    <div class="navbar">
 
-<form method="POST">
+        <div class="logo">
+            MediSense AI
+        </div>
 
-    <input type="number"
-           name="pregnancies"
-           placeholder="Pregnancies"
-           required>
+    </div>
 
-    <br><br>
+    <div class="container">
 
-    <input type="number"
-           name="glucose"
-           placeholder="Glucose"
-           required>
+        <div class="card">
 
-    <br><br>
+            <h1>Diabetes Risk Predictor</h1>
 
-    <input type="number"
-           name="blood_pressure"
-           placeholder="Blood Pressure"
-           required>
+            <form method="POST">
 
-    <br><br>
+                <div class="form-grid">
 
-    <input type="number"
-           name="skin_thickness"
-           placeholder="Skin Thickness"
-           required>
+                    <div class="form-group">
+                        <label>Pregnancies</label>
+                        <input
+                        type="number"
+                        name="pregnancies"
+                        value="{{ request.form.get('pregnancies', '') }}"
+                        required>
+                    </div>
 
-    <br><br>
+                    <div class="form-group">
+                        <label>Glucose</label>
+                        <input
+                        type="number"
+                        name="glucose"
+                        value="{{ request.form.get('glucose', '') }}"
+                        required>
+                    </div>
 
-    <input type="number"
-           name="insulin"
-           placeholder="Insulin"
-           required>
+                    <div class="form-group">
+                        <label>Blood Pressure</label>
+                        <input
+                        type="number"
+                        name="blood_pressure"
+                        value="{{ request.form.get('blood_pressure', '') }}"
+                        required>
+                    </div>
 
-    <br><br>
+                    <div class="form-group">
+                        <label>Skin Thickness</label>
+                        <input
+                        type="number"
+                        name="skin_thickness"
+                        value="{{ request.form.get('skin_thickness', '') }}"
+                        required>
+                    </div>
 
-    <input type="number"
-           step="0.01"
-           name="bmi"
-           placeholder="BMI"
-           required>
+                    <div class="form-group">
+                        <label>Insulin</label>
+                        <input
+                        type="number"
+                        name="insulin"
+                        value="{{ request.form.get('insulin', '') }}"
+                        required>
+                    </div>
 
-    <br><br>
+                    <div class="form-group">
+                        <label>BMI</label>
+                        <input
+                        type="number"
+                        step="0.1"
+                        name="bmi"
+                        value="{{ request.form.get('bmi', '') }}"
+                        required>
+                    </div>
 
-    <input type="number"
-           step="0.01"
-           name="dpf"
-           placeholder="Diabetes Pedigree Function"
-           required>
+                    <div class="form-group">
+                        <label>Diabetes Pedigree Function</label>
+                        <input
+                        type="number"
+                        step="0.01"
+                        name="dpf"
+                        value="{{ request.form.get('dpf', '') }}"
+                        required>
+                    </div>
 
-    <br><br>
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input
+                        type="number"
+                        name="age"
+                        value="{{ request.form.get('age', '') }}"
+                        required>
+                    </div>
 
-    <input type="number"
-           name="age"
-           placeholder="Age"
-           required>
+                </div>
 
-    <br><br>
+                <button
+                class="predict-btn"
+                type="submit">
 
-    <button type="submit">
-        Predict
-    </button>
+                    Predict Risk
 
-</form>
+                </button>
 
-{% if result %}
+            </form>
 
-<h2>
-    Prediction: {{ result }}
-</h2>
+            {% if result %}
 
-<p>
-    {{ insight }}
-</p>
+            <div class="result-box">
 
-{% endif %}
+                <h2>
+                    Prediction:
+                    {{ result }}
+                </h2>
+
+                <p>
+                    {{ insight }}
+                </p>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
 
 </body>
 </html>
