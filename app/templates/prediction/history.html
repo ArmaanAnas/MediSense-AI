@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction History</title>
+</head>
+<body>
+
+<h1>Prediction History</h1>
+
+<table border="1">
+
+<tr>
+    <th>ID</th>
+    <th>Type</th>
+    <th>Result</th>
+    <th>Date</th>
+</tr>
+
+{% for item in history %}
+
+<tr>
+    <td>{{ item.id }}</td>
+    <td>{{ item.prediction_type }}</td>
+    <td>{{ item.result }}</td>
+    <td>{{ item.created_at }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>
