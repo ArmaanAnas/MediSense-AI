@@ -107,33 +107,33 @@ def dashboard():
         user_id=current_user.id
     ).first()
 
-    bmi = None
-
-    if profile:
-        bmi = round(
-            profile.weight /
-            ((profile.height / 100) ** 2),
-            2
+    # New user has no profile yet
+    if not profile:
+        return redirect(
+            url_for("auth.health_profile")
         )
 
-    health_status = "Healthy"
+    bmi = round(
+        profile.weight /
+        ((profile.height / 100) ** 2),
+        2
+    )
 
-    if bmi:
-        if bmi < 18.5:
-            health_status = "Underweight"
+    if bmi < 18.5:
+        health_status = "Underweight"
 
-        elif bmi < 25:
-            health_status = "Healthy"
+    elif bmi < 25:
+        health_status = "Healthy"
 
-        elif bmi < 30:
-            health_status = "Overweight"
+    elif bmi < 30:
+        health_status = "Overweight"
 
-        else:
-            health_status = "Obese"
+    else:
+        health_status = "Obese"
 
     risk_score = 0
 
-    if bmi and bmi > 25:
+    if bmi > 25:
         risk_score += 2
 
     if profile.blood_sugar > 140:
@@ -156,7 +156,6 @@ def dashboard():
 
     else:
         risk_level = "High Risk"
-
     return render_template(
         "dashboard/dashboard.html",
         profile=profile,
