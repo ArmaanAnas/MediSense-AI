@@ -41,11 +41,27 @@ def diabetes_prediction():
         )[0]
 
         if prediction_result == 1:
+
             result = "Diabetic"
+
+            insight = (
+        "Your health indicators suggest a higher risk "
+        "of diabetes. Consider consulting a healthcare "
+        "professional and maintaining a healthy lifestyle."
+    )
+
         else:
+
             result = "Not Diabetic"
 
-    return render_template(
-        "prediction/diabetes_prediction.html",
-        result=result
+            insight = (
+        "Your health indicators appear normal. "
+        "Continue maintaining a balanced diet and "
+        "regular exercise routine."
     )
+
+    return render_template(
+    "prediction/diabetes_prediction.html",
+    result=result,
+    insight=insight if result else None
+)
