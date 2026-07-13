@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Heart Disease Prediction</title>
+
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/heart.css') }}">
+
+</head>
+<body>
+
+<div class="navbar">
+
+    <div class="logo">
+        MediSense AI
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>Heart Disease Predictor</h1>
+
+        <form method="POST">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number"
+                           name="age"
+                           value="{{ request.form.get('age','') }}"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Sex (1=Male,0=Female)</label>
+                    <input type="number"
+                           name="sex"
+                           value="{{ request.form.get('sex','') }}"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Chest Pain Type</label>
+                    <input type="number"
+                           name="cp"
+                           value="{{ request.form.get('cp','') }}"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Resting Blood Pressure</label>
+                    <input type="number"
+                           name="trestbps"
+                           value="{{ request.form.get('trestbps','') }}"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Cholesterol</label>
+                    <input type="number"
+                           name="chol"
+                           value="{{ request.form.get('chol','') }}"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Fasting Blood Sugar</label>
+                    <input type="number"
+                           name="fbs"
+                           value="{{ request.form.get('fbs','') }}"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Rest ECG</label>
+                    <input type="number"
+                           name="restecg"
+                           value="{{ request.form.get('restecg','') }}"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Max Heart Rate</label>
+                    <input type="number"
+                           name="thalach"
+                           value="{{ request.form.get('thalach','') }}"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Exercise Angina</label>
+                    <input type="number"
+                           name="exang"
+                           value="{{ request.form.get('exang','') }}"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Old Peak</label>
+                    <input type="number"
+                           step="0.1"
+                           name="oldpeak"
+                           value="{{ request.form.get('oldpeak','') }}"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Slope</label>
+                    <input type="number"
+                           name="slope"
+                           value="{{ request.form.get('slope','') }}"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>CA</label>
+                    <input type="number"
+                           name="ca"
+                           value="{{ request.form.get('ca','') }}"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Thal</label>
+                    <input type="number"
+                           name="thal"
+                           value="{{ request.form.get('thal','') }}"
+                           required>
+                </div>
+
+            </div>
+
+            <button
+            class="predict-btn"
+            type="submit">
+
+                Predict Heart Disease
+
+            </button>
+
+        </form>
+
+        {% if result %}
+
+        <div class="result-box">
+
+            <h2>
+                Result:
+                {{ result }}
+            </h2>
+
+            <p>
+                {{ insight }}
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+</html>
