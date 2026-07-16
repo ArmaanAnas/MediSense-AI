@@ -6,6 +6,7 @@ from flask_login import (
 )
 
 from app.models.health_profile import HealthProfile
+from app.models.prediction_history import PredictionHistory
 from flask import (
     Blueprint,
     render_template,
@@ -107,7 +108,6 @@ def dashboard():
         user_id=current_user.id
     ).first()
 
-    # New user has no profile yet
     if not profile:
         return redirect(
             url_for("auth.health_profile")
@@ -156,6 +156,17 @@ def dashboard():
 
     else:
         risk_level = "High Risk"
+
+    diabetes_count = PredictionHistory.query.filter_by(
+        user_id=current_user.id,
+        prediction_type="Diabetes"
+    ).count()
+
+    heart_count = PredictionHistory.query.filter_by(
+        user_id=current_user.id,
+        prediction_type="Heart Disease"
+    ).count()
+
     return render_template(
         "dashboard/dashboard.html",
         profile=profile,
@@ -163,9 +174,10 @@ def dashboard():
         health_status=health_status,
         risk_score=risk_score,
         risk_level=risk_level,
-        user=current_user
+        user=current_user,
+        diabetes_count=diabetes_count,
+        heart_count=heart_count
     )
-
 @auth.route("/logout")
 @login_required
 def logout():

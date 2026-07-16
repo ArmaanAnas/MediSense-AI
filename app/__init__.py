@@ -4,6 +4,7 @@ from app.routes.auth_routes import auth
 from app.routes.prediction_routes import prediction
 from app.routes.heart_prediction_routes import heart_prediction
 from app.routes.recommendation_routes import recommendation
+from app.routes.chatbot_routes import chatbot
 
 from app.extensions import (
     db,
@@ -33,6 +34,7 @@ def create_app():
     app.register_blueprint(heart_prediction)
     app.register_blueprint(prediction)
     app.register_blueprint(recommendation)
+    app.register_blueprint(chatbot)
 
     with app.app_context():
         db.create_all()

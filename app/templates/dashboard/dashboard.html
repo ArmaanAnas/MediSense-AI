@@ -26,8 +26,13 @@
     <div class="dashboard">
 
         <div class="welcome">
-            <h1>Welcome {{ user.name }} 👋</h1>
-        </div>
+    <h1>Welcome Back, {{ user.name }} 👋</h1>
+
+    <p>
+        Track your health metrics, monitor risk scores,
+        and get AI-powered health insights through MediSense AI.
+    </p>
+</div>
 
         {% if profile %}
 
@@ -58,84 +63,123 @@
                 <p>{{ risk_level }}</p>
             </div>
 
+            <div class="card">
+                <h3>Predictions</h3>
+                <p>{{ diabetes_count + heart_count }}</p>
+            </div>
+
         </div>
 
         <div class="health-summary">
 
-    <h2>Health Details</h2>
+            <h2>Health Details</h2>
 
-    <div class="detail-grid">
+            <div class="detail-grid">
 
-        <div class="detail-item">
-            <span>Age</span>
-            <strong>{{ profile.age }}</strong>
+                <div class="detail-item">
+                    <span>Age</span>
+                    <strong>{{ profile.age }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Gender</span>
+                    <strong>{{ profile.gender }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Height</span>
+                    <strong>{{ profile.height }} cm</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Weight</span>
+                    <strong>{{ profile.weight }} kg</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Blood Pressure</span>
+                    <strong>{{ profile.blood_pressure }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Blood Sugar</span>
+                    <strong>{{ profile.blood_sugar }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Cholesterol</span>
+                    <strong>{{ profile.cholesterol }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Smoking</span>
+                    <strong>{{ profile.smoking_status }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Exercise</span>
+                    <strong>{{ profile.exercise_frequency }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Family History</span>
+                    <strong>{{ profile.family_history }}</strong>
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="detail-item">
-            <span>Gender</span>
-            <strong>{{ profile.gender }}</strong>
+        <div class="health-summary">
+
+            <h2>Prediction Statistics</h2>
+
+            <div class="detail-grid">
+
+                <div class="detail-item">
+                    <span>Diabetes Predictions</span>
+                    <strong>{{ diabetes_count }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Heart Predictions</span>
+                    <strong>{{ heart_count }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Total Predictions</span>
+                    <strong>{{ diabetes_count + heart_count }}</strong>
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="detail-item">
-            <span>Height</span>
-            <strong>{{ profile.height }} cm</strong>
+        <div class="quick-actions">
+
+            <h2>AI Tools</h2>
+
+            <div class="action-buttons">
+
+                <a href="/diabetes-prediction">
+                    Diabetes Prediction
+                </a>
+
+                <a href="/heart-disease-prediction">
+                    Heart Prediction
+                </a>
+
+                <a href="/prediction-history">
+                    Prediction History
+                </a>
+
+                <a href="/recommendations">
+                    AI Recommendations
+                </a>
+
+            </div>
+
         </div>
-
-        <div class="detail-item">
-            <span>Weight</span>
-            <strong>{{ profile.weight }} kg</strong>
-        </div>
-
-        <div class="detail-item">
-            <span>Blood Pressure</span>
-            <strong>{{ profile.blood_pressure }}</strong>
-        </div>
-
-        <div class="detail-item">
-            <span>Blood Sugar</span>
-            <strong>{{ profile.blood_sugar }}</strong>
-        </div>
-
-        <div class="detail-item">
-            <span>Cholesterol</span>
-            <strong>{{ profile.cholesterol }}</strong>
-        </div>
-
-        <div class="detail-item">
-            <span>Smoking</span>
-            <strong>{{ profile.smoking_status }}</strong>
-        </div>
-
-        <div class="detail-item">
-            <span>Exercise</span>
-            <strong>{{ profile.exercise_frequency }}</strong>
-        </div>
-
-        <div class="detail-item">
-            <span>Family History</span>
-            <strong>{{ profile.family_history }}</strong>
-        </div>
-
-    </div>
-
-</div>
-<div class="quick-actions">
-
-    <h2>AI Tools</h2>
-
-    <div class="action-buttons">
-
-        <a href="/diabetes-prediction">
-            Diabetes Prediction
-        </a>
-
-        <a href="/prediction-history">
-            Prediction History
-        </a>
-
-    </div>
-
-</div>
 
         {% endif %}
 
