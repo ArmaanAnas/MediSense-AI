@@ -81,3 +81,59 @@ body{
 .result-box h2{
     color:#06b6d4;
 }
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.nav-links a:hover{
+    color:#06b6d4;
+}
+
+.logout-btn{
+    background:#dc2626;
+    padding:10px 16px;
+    border-radius:8px;
+}
+select{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#111827;
+    color:white;
+    font-size:15px;
+}
+.low-risk{
+    border-left:6px solid #22c55e;
+}
+
+.high-risk{
+    border-left:6px solid #ef4444;
+}
+
+.result-box h2{
+    margin-bottom:10px;
+}
+
+.result-box h3{
+    color:#06b6d4;
+    margin-bottom:15px;
+}
+
+.dashboard-btn{
+    display:inline-block;
+    text-decoration:none;
+    background:#06b6d4;
+    color:white;
+    padding:12px 20px;
+    border-radius:8px;
+    font-weight:bold;
+}

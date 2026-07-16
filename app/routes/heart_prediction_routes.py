@@ -23,6 +23,7 @@ model = joblib.load(
     "trained_models/heart_disease_model.pkl"
 )
 
+
 @heart_prediction.route(
     "/heart-disease-prediction",
     methods=["GET", "POST"]
@@ -32,6 +33,7 @@ def predict_heart_disease():
 
     result = None
     insight = None
+    confidence = None
 
     if request.method == "POST":
 
@@ -54,6 +56,13 @@ def predict_heart_disease():
         prediction_result = model.predict(
             features
         )[0]
+
+        confidence = round(
+            max(
+                model.predict_proba(features)[0]
+            ) * 100,
+            2
+        )
 
         if prediction_result == 1:
 
@@ -86,5 +95,6 @@ def predict_heart_disease():
     return render_template(
         "prediction/heart_prediction.html",
         result=result,
-        insight=insight
+        insight=insight,
+        confidence=confidence
     )
