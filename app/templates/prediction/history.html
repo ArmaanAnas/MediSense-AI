@@ -1,33 +1,163 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <title>Prediction History</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/dashboard.css') }}">
+
+    <style>
+
+        .history-container{
+            max-width:1200px;
+            margin:auto;
+            padding:40px;
+        }
+
+        .history-card{
+            background:#1e293b;
+            padding:30px;
+            border-radius:20px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
+
+        th{
+            background:#0f172a;
+            color:#06b6d4;
+            padding:15px;
+        }
+
+        td{
+            padding:15px;
+            text-align:center;
+            border-bottom:1px solid #334155;
+        }
+
+        .high-risk{
+            color:#ef4444;
+            font-weight:bold;
+        }
+
+        .low-risk{
+            color:#22c55e;
+            font-weight:bold;
+        }
+
+    </style>
+
 </head>
+
 <body>
 
-<h1>Prediction History</h1>
+<div class="navbar">
 
-<table border="1">
+    <div class="logo">
+        MediSense AI
+    </div>
 
-<tr>
-    <th>ID</th>
-    <th>Type</th>
-    <th>Result</th>
-    <th>Date</th>
-</tr>
+    <div class="nav-links">
 
-{% for item in history %}
+        <a href="{{ url_for('auth.dashboard') }}">
+            Dashboard
+        </a>
 
-<tr>
-    <td>{{ item.id }}</td>
-    <td>{{ item.prediction_type }}</td>
-    <td>{{ item.result }}</td>
-    <td>{{ item.created_at }}</td>
-</tr>
+        <a href="/diabetes-prediction">
+            Diabetes
+        </a>
 
-{% endfor %}
+        <a href="/heart-disease-prediction">
+            Heart
+        </a>
 
-</table>
+        <a href="/recommendations">
+            Recommendations
+        </a>
+
+        <a href="/health-chatbot">
+            AI Chatbot
+        </a>
+
+        <a href="/download-report">
+            Report
+        </a>
+
+        <a href="{{ url_for('auth.logout') }}"
+           class="logout-btn">
+            Logout
+        </a>
+
+    </div>
+
+</div>
+
+<div class="history-container">
+
+    <div class="history-card">
+
+        <h1>
+            Prediction History
+        </h1>
+
+        <table>
+
+            <tr>
+
+                <th>ID</th>
+                <th>Prediction Type</th>
+                <th>Result</th>
+                <th>Date</th>
+
+            </tr>
+
+            {% for item in history %}
+
+            <tr>
+
+                <td>{{ item.id }}</td>
+
+                <td>
+                    {{ item.prediction_type }}
+                </td>
+
+                <td>
+
+                    {% if "High" in item.result
+                    or "Diabetic" in item.result %}
+
+                    <span class="high-risk">
+                        {{ item.result }}
+                    </span>
+
+                    {% else %}
+
+                    <span class="low-risk">
+                        {{ item.result }}
+                    </span>
+
+                    {% endif %}
+
+                </td>
+
+                <td>
+                    {{ item.created_at.strftime('%d-%m-%Y %H:%M') }}
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
 
 </body>
 </html>

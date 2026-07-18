@@ -4,24 +4,82 @@
 
     <title>AI Recommendations</title>
 
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/dashboard.css') }}">
+
 </head>
+
 <body>
 
-    <h1>
-        AI Health Recommendations
-    </h1>
+<div class="navbar">
 
-    <ul>
+    <div class="logo">
+        MediSense AI
+    </div>
 
-        {% for item in recommendations %}
+    <div class="nav-links">
 
-        <li>
-            {{ item }}
-        </li>
+        <a href="{{ url_for('auth.dashboard') }}">
+            Dashboard
+        </a>
 
-        {% endfor %}
+        <a href="/diabetes-prediction">
+            Diabetes
+        </a>
 
-    </ul>
+        <a href="/heart-disease-prediction">
+            Heart
+        </a>
+
+        <a href="/prediction-history">
+            History
+        </a>
+
+        <a href="/health-chatbot">
+            AI Chatbot
+        </a>
+
+        <a href="/download-report">
+            Report
+        </a>
+
+        <a href="{{ url_for('auth.logout') }}"
+           class="logout-btn">
+            Logout
+        </a>
+
+    </div>
+
+</div>
+
+<div class="dashboard">
+
+    <div class="health-summary">
+
+        <h2>
+            AI Health Recommendations
+        </h2>
+
+        <div class="detail-grid">
+
+            {% for item in recommendations %}
+
+            <div class="detail-item">
+
+                <strong>
+                    {{ item }}
+                </strong>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>

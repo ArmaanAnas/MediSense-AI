@@ -6,11 +6,20 @@ from flask import (
 
 from flask_login import login_required
 
+import google.generativeai as genai
+from config import Config
+
+
 chatbot = Blueprint(
     "chatbot",
     __name__
 )
 
+genai.configure(
+    api_key=Config.GEMINI_API_KEY
+)
+
+model = genai.GenerativeModel("gemini-2.0-flash")
 
 @chatbot.route(
     "/health-chatbot",
@@ -23,44 +32,36 @@ def health_chatbot():
 
     if request.method == "POST":
 
-        user_message = request.form.get(
-            "message"
-        ).lower()
+        user_question = request.form.get(
+            "question"
+        )
 
-        if "diabetes" in user_message:
+        try:
 
-            response = (
-                "Type 2 diabetes can often be managed "
-                "through exercise, healthy diet and "
-                "medical guidance."
+            prompt = f"""
+You are MediSense AI Health Assistant.
+
+Rules:
+- Provide health information only.
+- Give concise and easy-to-understand answers.
+- Never claim to be a doctor.
+- Recommend consulting healthcare professionals when necessary.
+- Do not provide dangerous medical advice.
+
+User Question:
+{user_question}
+"""
+
+            result = model.generate_content(
+                prompt
             )
 
-        elif "blood pressure" in user_message:
+            response = result.text
+
+        except Exception as e:
 
             response = (
-                "A normal blood pressure is around "
-                "120/80 mmHg."
-            )
-
-        elif "cholesterol" in user_message:
-
-            response = (
-                "Maintaining healthy cholesterol "
-                "levels reduces heart disease risk."
-            )
-
-        elif "exercise" in user_message:
-
-            response = (
-                "At least 30 minutes of exercise "
-                "daily is recommended."
-            )
-
-        else:
-
-            response = (
-                "Please consult a healthcare "
-                "professional for personalized advice."
+                f"Error: {str(e)}"
             )
 
     return render_template(

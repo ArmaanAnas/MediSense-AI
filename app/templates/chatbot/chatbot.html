@@ -71,6 +71,47 @@
 
 <body>
 
+<div class="navbar">
+
+    <div class="logo">
+        MediSense AI
+    </div>
+
+    <div class="nav-links">
+
+        <a href="{{ url_for('auth.dashboard') }}">
+            Dashboard
+        </a>
+
+        <a href="/diabetes-prediction">
+            Diabetes
+        </a>
+
+        <a href="/heart-disease-prediction">
+            Heart
+        </a>
+
+        <a href="/prediction-history">
+            History
+        </a>
+
+        <a href="/recommendations">
+            Recommendations
+        </a>
+
+        <a href="/download-report">
+            Report
+        </a>
+
+        <a href="{{ url_for('auth.logout') }}"
+           class="logout-btn">
+            Logout
+        </a>
+
+    </div>
+
+</div>
+
 <div class="container">
 
     <div class="card">

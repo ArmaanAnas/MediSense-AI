@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Dashboard - MediSense AI</title>
 
-    <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
 </head>
+
 <body>
 
     <div class="navbar">
@@ -15,9 +15,7 @@
             MediSense AI
         </div>
 
-        <a
-        class="logout-btn"
-        href="{{ url_for('auth.logout') }}">
+        <a class="logout-btn" href="{{ url_for('auth.logout') }}">
             Logout
         </a>
 
@@ -26,13 +24,13 @@
     <div class="dashboard">
 
         <div class="welcome">
-    <h1>Welcome Back, {{ user.name }} 👋</h1>
+            <h1>Welcome Back, {{ user.name }} 👋</h1>
 
-    <p>
-        Track your health metrics, monitor risk scores,
-        and get AI-powered health insights through MediSense AI.
-    </p>
-</div>
+            <p>
+                Track your health metrics, monitor risk scores,
+                and get AI-powered health insights through MediSense AI.
+            </p>
+        </div>
 
         {% if profile %}
 
@@ -176,6 +174,9 @@
                 <a href="/recommendations">
                     AI Recommendations
                 </a>
+                <a href="/download-report">
+                    Download Health Report
+                </a>
 
             </div>
 
@@ -186,4 +187,5 @@
     </div>
 
 </body>
+
 </html>

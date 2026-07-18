@@ -187,9 +187,7 @@ def logout():
     return redirect(
         url_for("main.home")
     )
-    return redirect(
-    url_for("main.home")
-)
+
 
 @auth.route("/health-profile", methods=["GET", "POST"])
 @login_required

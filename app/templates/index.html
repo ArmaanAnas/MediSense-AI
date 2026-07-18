@@ -2,8 +2,11 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>MediSense AI</title>
 
     <link rel="stylesheet"
@@ -11,6 +14,7 @@
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
 
 <body>
@@ -20,36 +24,65 @@
     <nav class="navbar">
 
         <div class="logo">
+
             <i class="fa-solid fa-heart-pulse"></i>
             MediSense AI
+
         </div>
 
         <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#features">Features</a>
-            <a href="#">About</a>
-            <a href="{{ url_for('auth.login') }}">Login</a>
-            <a href="{{ url_for('auth.register') }}">Register</a>
+
+            <a href="#home">Home</a>
+
+            <a href="#features">
+                Features
+            </a>
+
+            <a href="#how-it-works">
+                How It Works
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="{{ url_for('auth.login') }}">
+                Login
+            </a>
+
+            <a href="{{ url_for('auth.register') }}">
+                Register
+            </a>
+
         </div>
 
     </nav>
 
     <!-- Hero Section -->
 
-    <section class="hero">
+    <section class="hero"
+             id="home">
 
         <div class="hero-content">
 
             <h1>
+
                 Predict Health Risks
-                <span>Using AI</span>
+
+                <span>
+                    Using AI
+                </span>
+
             </h1>
 
             <p>
-                MediSense AI helps users analyze health parameters,
-                predict disease risks, generate personalized
-                recommendations and monitor wellness using
-                Artificial Intelligence.
+
+                MediSense AI is an AI-powered healthcare
+                diagnosis assistant that helps users
+                monitor health, predict disease risks,
+                generate smart reports and receive
+                personalized recommendations.
+
             </p>
 
             <div class="hero-buttons">
@@ -74,23 +107,43 @@
 
     </section>
 
-    <!-- Features -->
+    <!-- Features Section -->
 
-    <section class="features" id="features">
+    <section class="features"
+             id="features">
 
-        <h2>Core Features</h2>
+        <h2>
+            Core Features
+        </h2>
 
         <div class="feature-grid">
 
             <div class="feature-card">
 
-                <i class="fa-solid fa-stethoscope"></i>
+                <i class="fa-solid fa-heart-pulse"></i>
 
-                <h3>Disease Prediction</h3>
+                <h3>
+                    Diabetes Prediction
+                </h3>
 
                 <p>
-                    Predict diabetes, heart disease and
-                    hypertension risk.
+                    Predict diabetes risk using
+                    machine learning algorithms.
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <i class="fa-solid fa-heart-circle-check"></i>
+
+                <h3>
+                    Heart Disease Prediction
+                </h3>
+
+                <p>
+                    Analyze cardiovascular health
+                    and assess disease risk.
                 </p>
 
             </div>
@@ -99,11 +152,13 @@
 
                 <i class="fa-solid fa-chart-line"></i>
 
-                <h3>Health Analytics</h3>
+                <h3>
+                    Health Analytics
+                </h3>
 
                 <p>
-                    Visualize health trends and monitor
-                    progress.
+                    Calculate BMI, risk score
+                    and monitor wellness trends.
                 </p>
 
             </div>
@@ -112,11 +167,13 @@
 
                 <i class="fa-solid fa-robot"></i>
 
-                <h3>AI Assistant</h3>
+                <h3>
+                    AI Health Assistant
+                </h3>
 
                 <p>
-                    Ask health-related questions with
-                    AI support.
+                    Ask health-related questions
+                    and receive AI-powered guidance.
                 </p>
 
             </div>
@@ -125,11 +182,28 @@
 
                 <i class="fa-solid fa-file-medical"></i>
 
-                <h3>Smart Reports</h3>
+                <h3>
+                    Smart PDF Reports
+                </h3>
 
                 <p>
-                    Generate downloadable health reports
-                    instantly.
+                    Generate downloadable health
+                    reports instantly.
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+                <h3>
+                    Prediction History
+                </h3>
+
+                <p>
+                    Track previous health
+                    predictions and results.
                 </p>
 
             </div>
@@ -137,6 +211,130 @@
         </div>
 
     </section>
+
+    <!-- How It Works -->
+
+    <section class="features"
+             id="how-it-works">
+
+        <h2>
+            How It Works
+        </h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+
+                <h3>
+                    Step 1
+                </h3>
+
+                <p>
+                    Register and create your
+                    MediSense AI account.
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <h3>
+                    Step 2
+                </h3>
+
+                <p>
+                    Enter your health profile
+                    information securely.
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <h3>
+                    Step 3
+                </h3>
+
+                <p>
+                    Get disease predictions,
+                    recommendations and reports.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- About -->
+
+    <section class="features"
+             id="about">
+
+        <h2>
+            About MediSense AI
+        </h2>
+
+        <div class="feature-card">
+
+            <p style="font-size:18px; line-height:1.8;">
+
+                MediSense AI is a healthcare
+                diagnosis assistant developed
+                using Flask, MySQL and Machine
+                Learning technologies.
+
+                The platform helps users
+                evaluate their health status,
+                predict diabetes and heart disease
+                risks, maintain health records,
+                generate reports and receive
+                intelligent health recommendations.
+
+                The goal is to provide an easy,
+                accessible and AI-powered health
+                monitoring experience.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer style="
+        background:#111827;
+        text-align:center;
+        padding:50px 20px;
+        margin-top:60px;
+    ">
+
+        <h2 style="color:#06b6d4;">
+            MediSense AI
+        </h2>
+
+        <br>
+
+        <p>
+            AI-Powered Healthcare Diagnosis Assistant
+        </p>
+
+        <br>
+
+        <p>
+            Developed by Armaan Anas
+        </p>
+
+        <p>
+            B.Tech CSE-DS
+        </p>
+
+        <p>
+            ABES Engineering College
+        </p>
+
+    </footer>
 
 </body>
 

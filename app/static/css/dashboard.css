@@ -11,12 +11,13 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 60px;
+    padding:20px 40px;
     background:#111827;
     box-shadow:0 2px 10px rgba(0,0,0,0.3);
     position:sticky;
     top:0;
     z-index:100;
+    flex-wrap:wrap;
 }
 
 .logo{
@@ -25,20 +26,34 @@ body{
     color:#06b6d4;
 }
 
-.logout-btn{
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.nav-links a{
     text-decoration:none;
     color:white;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#06b6d4;
+}
+
+.logout-btn{
     background:#dc2626;
     padding:10px 18px;
     border-radius:10px;
-    transition:0.3s;
-    font-weight:600;
+    color:white !important;
 }
 
 .logout-btn:hover{
     background:#b91c1c;
 }
-
 /* Dashboard */
 
 .dashboard{

@@ -1,93 +1,249 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Health Profile</title>
+
+    <title>Health Profile - MediSense AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+    <style>
+
+        .profile-container{
+            max-width:1000px;
+            margin:40px auto;
+            padding:20px;
+        }
+
+        .profile-card{
+            background:#1e293b;
+            padding:35px;
+            border-radius:20px;
+        }
+
+        .profile-card h1{
+            text-align:center;
+            color:#06b6d4;
+            margin-bottom:30px;
+        }
+
+        .form-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:20px;
+        }
+
+        .form-group{
+            display:flex;
+            flex-direction:column;
+        }
+
+        .form-group label{
+            margin-bottom:8px;
+            color:#94a3b8;
+        }
+
+        .form-group input,
+        .form-group select{
+            padding:14px;
+            border:none;
+            border-radius:10px;
+            background:#111827;
+            color:white;
+            font-size:15px;
+        }
+
+        .save-btn{
+            margin-top:30px;
+            width:100%;
+            padding:16px;
+            border:none;
+            border-radius:12px;
+            background:#06b6d4;
+            color:white;
+            font-size:18px;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .save-btn:hover{
+            background:#0891b2;
+        }
+
+    </style>
+
 </head>
+
 <body>
 
-    <h1>Create Health Profile</h1>
+<div class="navbar">
 
-    <form method="POST">
+    <div class="logo">
+        MediSense AI
+    </div>
 
-        <input type="number"
-               name="age"
-               placeholder="Age"
-               required>
+    <div class="nav-links">
 
-        <br><br>
+        <a href="{{ url_for('auth.logout') }}"
+           class="logout-btn">
+            Logout
+        </a>
 
-        <select name="gender">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select>
+    </div>
 
-        <br><br>
+</div>
 
-        <input type="number"
-               step="0.01"
-               name="height"
-               placeholder="Height (cm)"
-               required>
+<div class="profile-container">
 
-        <br><br>
+    <div class="profile-card">
 
-        <input type="number"
-               step="0.01"
-               name="weight"
-               placeholder="Weight (kg)"
-               required>
+        <h1>
+            Create Health Profile
+        </h1>
 
-        <br><br>
+        <form method="POST">
 
-        <input type="text"
-               name="blood_pressure"
-               placeholder="Blood Pressure"
-               required>
+            <div class="form-grid">
 
-        <br><br>
+                <div class="form-group">
+                    <label>Age</label>
 
-        <input type="number"
-               step="0.01"
-               name="blood_sugar"
-               placeholder="Blood Sugar"
-               required>
+                    <input
+                        type="number"
+                        name="age"
+                        required>
+                </div>
 
-        <br><br>
+                <div class="form-group">
+                    <label>Gender</label>
 
-        <input type="number"
-               step="0.01"
-               name="cholesterol"
-               placeholder="Cholesterol"
-               required>
+                    <select name="gender">
 
-        <br><br>
+                        <option value="Male">
+                            Male
+                        </option>
 
-        <input type="text"
-               name="smoking_status"
-               placeholder="Smoking Status"
-               required>
+                        <option value="Female">
+                            Female
+                        </option>
 
-        <br><br>
+                    </select>
+                </div>
 
-        <input type="text"
-               name="exercise_frequency"
-               placeholder="Exercise Frequency"
-               required>
+                <div class="form-group">
+                    <label>Height (cm)</label>
 
-        <br><br>
+                    <input
+                        type="number"
+                        step="0.01"
+                        name="height"
+                        required>
+                </div>
 
-        <input type="text"
-               name="family_history"
-               placeholder="Family History"
-               required>
+                <div class="form-group">
+                    <label>Weight (kg)</label>
 
-        <br><br>
+                    <input
+                        type="number"
+                        step="0.01"
+                        name="weight"
+                        required>
+                </div>
 
-        <button type="submit">
-            Save Profile
-        </button>
+                <div class="form-group">
+                    <label>Blood Pressure</label>
 
-    </form>
+                    <input
+                        type="text"
+                        name="blood_pressure"
+                        placeholder="120/80"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label>Blood Sugar</label>
+
+                    <input
+                        type="number"
+                        step="0.01"
+                        name="blood_sugar"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label>Cholesterol</label>
+
+                    <input
+                        type="number"
+                        step="0.01"
+                        name="cholesterol"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label>Smoking Status</label>
+
+                    <select name="smoking_status">
+
+                        <option value="No">
+                            No
+                        </option>
+
+                        <option value="Yes">
+                            Yes
+                        </option>
+
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Exercise Frequency</label>
+
+                    <select name="exercise_frequency">
+
+                        <option value="Daily">
+                            Daily
+                        </option>
+
+                        <option value="3-5 Times Weekly">
+                            3-5 Times Weekly
+                        </option>
+
+                        <option value="Rarely">
+                            Rarely
+                        </option>
+
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Family History</label>
+
+                    <input
+                        type="text"
+                        name="family_history"
+                        placeholder="Diabetes, Heart Disease, None"
+                        required>
+                </div>
+
+            </div>
+
+            <button
+                type="submit"
+                class="save-btn">
+
+                Save Health Profile
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
 
 </body>
+
 </html>
